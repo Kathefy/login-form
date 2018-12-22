@@ -15,8 +15,9 @@ class UserName extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="container">
         <input
+          className="inputText"
           type="text"
           name="name"
           required="required"
@@ -42,8 +43,9 @@ class Email extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="container">
         <input
+          className="inputText"
           type="email"
           name="email"
           required="required"
@@ -69,8 +71,9 @@ class Password extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="container">
         <input
+          className="inputText inputTextLast"
           type="password"
           name="password"
           required="required"
