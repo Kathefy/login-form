@@ -15,14 +15,16 @@ class UserName extends Component {
   };
   render() {
     return (
-      <input
-        type="text"
-        placeholder="Full Name"
-        name="name"
-        required="required"
-        value={this.state.value}
-        onChange={this.changeValueName}
-      />
+      <div>
+        <input
+          type="text"
+          name="name"
+          required="required"
+          value={this.state.value}
+          onChange={this.changeValueName}
+        />
+        <span class="labelFloat">Full Name</span>
+      </div>
     );
   }
 }
@@ -40,14 +42,16 @@ class Email extends Component {
   };
   render() {
     return (
-      <input
-        type="email"
-        placeholder="Email"
-        name="email"
-        required="required"
-        value={this.state.value}
-        onChange={this.changeValueEmail}
-      />
+      <div>
+        <input
+          type="email"
+          name="email"
+          required="required"
+          value={this.state.value}
+          onChange={this.changeValueEmail}
+        />
+        <span class="labelFloat">Email</span>
+      </div>
     );
   }
 }
@@ -65,14 +69,16 @@ class Password extends Component {
   };
   render() {
     return (
-      <input
-        type="password"
-        placeholder="Password"
-        name="password"
-        required="required"
-        value={this.state.value}
-        onChange={this.changeValuePassword}
-      />
+      <div>
+        <input
+          type="password"
+          name="password"
+          required="required"
+          value={this.state.value}
+          onChange={this.changeValuePassword}
+        />
+        <span class="labelFloat">Password</span>
+      </div>
     );
   }
 }
