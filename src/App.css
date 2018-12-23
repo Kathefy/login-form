@@ -47,7 +47,7 @@ input:focus {
   transition: 0.2s ease all;
 }
 input:focus ~ .labelFloat,
-input:not(:focus):valid ~ .labelFloat {
+input:not([value=""]) ~ .labelFloat {
   top: 10px;
   left: 25px;
   font-size: 16px;
@@ -68,4 +68,14 @@ button {
 }
 button:hover {
   background: #4444b9;
+}
+.error {
+  color: #db5757;
+}
+.errorInput,
+.errorInput:focus {
+  background: #fffcfc;
+  border: 2px solid #db5757;
+  box-shadow: none;
+  color: #db5757;
 }
