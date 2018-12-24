@@ -1,64 +1,66 @@
-import React, { Component } from "react";
+import React from "react";
 import { withFormik, Form, Field } from "formik";
 import "./App.css";
-import Yup from "yup";
+import * as Yup from "yup";
 
-const App = ({ values, errors, touched, isSubmitting, handleChange }) => (
+const App = ({ errors, touched, isSubmitting }) => (
   <div className="form">
-    <form>
+    <Form>
       <div className="loginForm">
         <div className="container">
-          <input
+          <Field
             className={
-              "inputText " + (errors.name && touched.name && errors.nameClass)
+              errors.name && touched.name ? "inputText errorInput" : "inputText"
             }
             type="text"
             name="name"
-            onChange={handleChange}
-            value={values.name}
           />
           <span className="labelFloat">
             Full Name
-            {errors.name && touched.name && errors.name}
+            {errors.name && touched.name && (
+              <span className="error">{errors.name}</span>
+            )}
           </span>
         </div>
         <div className="container">
-          <input
+          <Field
             className={
-              "inputText " +
-              (errors.email && touched.email && errors.emailClass)
+              errors.email && touched.email
+                ? "inputText errorInput"
+                : "inputText"
             }
             type="email"
             name="email"
-            onChange={handleChange}
-            value={values.email}
           />
           <span className="labelFloat">
             Email
-            {errors.email && touched.email && errors.email}
+            {errors.email && touched.email && (
+              <span className="error">{errors.email}</span>
+            )}
           </span>
         </div>
         <div className="container">
-          <input
+          <Field
             className={
-              "inputText inputTextLast " +
-              (errors.password && touched.password && errors.passwordClass)
+              errors.password && touched.password
+                ? "inputText inputTextLast errorInput"
+                : "inputText inputTextLast"
             }
             type="password"
             name="password"
-            onChange={handleChange}
-            value={values.password}
           />
           <span className="labelFloat">
             Password
-            {errors.password && touched.password && errors.password}
+            {errors.password && touched.password && (
+              <span className="error">{errors.password}</span>
+            )}
           </span>
         </div>
       </div>
       <button type="submit" disabled={isSubmitting}>
         Submit
       </button>
-    </form>
+    </Form>
   </div>
 );
 const FormikApp = withFormik({
@@ -69,6 +71,15 @@ const FormikApp = withFormik({
       password: password || ""
     };
   },
+  validationSchema: Yup.object().shape({
+    name: Yup.string().required("Required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Required"),
+    password: Yup.string()
+      .min(8, "min 8 characters")
+      .required("Required")
+  }),
   handleSubmit(values) {
     console.log(values);
   }
