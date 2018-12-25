@@ -66,8 +66,18 @@ const FormikApp = withFormik({
       .min(8, "min 8 characters")
       .required("Required")
   }),
-  handleSubmit(values) {
-    console.log(values);
+  handleSubmit(values, { resetForm, setSubmitting }) {
+    let errors = [
+      "No such file or directory",
+      "Sorry, this username is taken",
+      "The server is not reachable",
+      "Site doesn't exist"
+    ];
+    let error = errors[Math.floor(Math.random() * errors.length)];
+    setTimeout(() => {
+      alert(error);
+      resetForm();
+    }, 2000);
   }
 })(App);
 
