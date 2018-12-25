@@ -66,7 +66,7 @@ const FormikApp = withFormik({
       .min(8, "min 8 characters")
       .required("Required")
   }),
-  handleSubmit(values, { resetForm, setSubmitting }) {
+  handleSubmit(values, { resetForm }) {
     let errors = [
       "No such file or directory",
       "Sorry, this username is taken",
