@@ -6,7 +6,7 @@ import * as Yup from "yup";
 const InputLine = ({ errorsName, touched, name, title, type }) => (
   <div className="container">
     <Field
-      className={errorsName && touched ? "inputText errorInput" : "inputText"}
+      className={`inputText ${errorsName && touched && "errorInput"}`}
       type={type}
       name={name}
     />
@@ -50,11 +50,11 @@ const App = ({ errors, touched, isSubmitting }) => (
   </div>
 );
 const FormikApp = withFormik({
-  mapPropsToValues({ name, email, password }) {
+  mapPropsToValues() {
     return {
-      name: name || "",
-      email: email || "",
-      password: password || ""
+      name: "",
+      email: "",
+      password: ""
     };
   },
   validationSchema: Yup.object().shape({

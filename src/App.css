@@ -5,7 +5,7 @@ body {
   background: #f5f5f7;
 }
 .form {
-  margin: 200px auto;
+  margin: 200px auto 0;
   width: 400px;
 }
 .loginForm {
