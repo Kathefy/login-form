@@ -2,6 +2,7 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import "./App.css";
 import * as Yup from "yup";
+import { HandleSubmit } from "./Helper";
 
 const InputLine = ({ errorsName, touched, name, title, type }) => (
   <div className="container">
@@ -66,19 +67,7 @@ const FormikApp = withFormik({
       .min(8, "min 8 characters")
       .required("Required")
   }),
-  handleSubmit(values, { resetForm }) {
-    let errors = [
-      "No such file or directory",
-      "Sorry, this username is taken",
-      "The server is not reachable",
-      "Site doesn't exist"
-    ];
-    let error = errors[Math.floor(Math.random() * errors.length)];
-    setTimeout(() => {
-      alert(error);
-      resetForm();
-    }, 2000);
-  }
+  handleSubmit: HandleSubmit
 })(App);
 
 export default FormikApp;
