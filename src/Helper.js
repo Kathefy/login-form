@@ -1,4 +1,4 @@
-export const HandleSubmit = (values, { resetForm }) => {
+const HandleSubmit = (values, { resetForm }) => {
   let errors = [
     "No such file or directory",
     "Sorry, this username is taken",
@@ -11,3 +11,4 @@ export const HandleSubmit = (values, { resetForm }) => {
     resetForm();
   }, 2000);
 };
+export default HandleSubmit;

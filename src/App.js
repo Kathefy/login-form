@@ -2,12 +2,12 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import "./App.css";
 import * as Yup from "yup";
-import { HandleSubmit } from "./Helper";
+import HandleSubmit from "./Helper";
 
 const InputLine = ({ errorsName, touched, name, title, type }) => (
   <div className="container">
     <Field
-      className={`inputText ${errorsName && touched && "errorInput"}`}
+      className={`inputText${errorsName && touched ? " errorInput" : ""}`}
       type={type}
       name={name}
     />
